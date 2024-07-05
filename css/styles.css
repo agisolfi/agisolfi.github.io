@@ -2846,19 +2846,19 @@ textarea.form-control-lg {
 
 .btn-primary {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #f4623a;
-  --bs-btn-border-color: #f4623a;
+  --bs-btn-bg: #d12323;
+  --bs-btn-border-color: #d12323;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #cf5331;
-  --bs-btn-hover-border-color: #c34e2e;
+  --bs-btn-hover-bg: #d12323;
+  --bs-btn-hover-border-color: #d12323;
   --bs-btn-focus-shadow-rgb: 246, 122, 88;
   --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #c34e2e;
-  --bs-btn-active-border-color: #b74a2c;
+  --bs-btn-active-bg: #d12323;
+  --bs-btn-active-border-color: #d12323;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #f4623a;
-  --bs-btn-disabled-border-color: #f4623a;
+  --bs-btn-disabled-bg: #d12323;
+  --bs-btn-disabled-border-color: #d12323;
 }
 
 .btn-secondary {
@@ -10851,6 +10851,13 @@ body {
   border: none;
   border-radius: 10rem;
 }
+.myDiv {
+  padding-top: 0px;
+  padding-left: 50px;
+  padding-right: 50px;
+  background-color: lightslategray;
+  text-align: left;
+}
 
 hr.divider {
   height: 0.2rem;
@@ -10929,7 +10936,7 @@ hr.divider-light {
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 4.5rem);
-  background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/bg-masthead.jpg");
+  background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("assets/img/abstract-nature-dark-red-wallpaper-preview.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
