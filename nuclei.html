@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://www.dropbox.com;">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Detecting Nuclei with Python | Anthony Dario Gisolfi</title>
+         <!-- Favicon-->
+         <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
+         <link rel="stylesheet" href="styles.css">
+    </head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1>Anthony Dario Gisolfi</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Projects</a>
+                    <div class="dropdown-content">
+                        <a href="professional.html">Professional</a>
+                        <a href="academic.html">Academic</a>
+                        <a href="makerspace.html">Makerspace</a>
+                    </div>
+                <li><a href="resume.html">Resume</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="content container">
+        <div class="col-md-9 blog-main order-first order-md-2">
+        <h1>Detecting Nuclei with Python</h1>
+        <h4>Motivation</h4>
+        <p>During the summer of 2022, I had the pleasure of participating in a REU at the University of Texas San Antonio under the Biomedical Engineering Research for Active military and Veterans (BRAVe) program. Under the guidance of Dr. Settimio Pacelli and Dr. Christopher Rathbone, I worked on researching diabetic skeletal muscle during my time there. The overall goal of my research was determine if an increase in the protein of a protien SIRT-1 would increase myogenic and angiogenic factors in diabetic muscle cells.</p>
+        <h4>Challenge</h4>
+        <p>As part of this research, I was tasked with counting the amount of nuclei stained with a fluorescent marker to show the presence of myogenesis in about 20 images. Unfortunately each of these images contained thousands of nuclei that I would have to count by hand. Instead, I took the initiative to create my own python program to complete this for me.</p>
+        <h4>Solution</h4>
+        <p>A python based program using the OpenCV library capable of counting nuclei in a reproducible manner.</p>
+        <h4>Approach</h4>
+        <p>To begin writing my program, I knew I needed some method of object detection to determine what was a nuclei and what wasn't. After some research, I stumbled upon OpenCV, an open source python library for image detection and analysis, and began working. </p>
+        <p>Each image that was analyzed looked similar to this:
+        <img title="nuclei" alt="nuclei" src="assets/img/projects/nuclei.png" width="75%"> </div></p>
+        <p>After using OpenCV's blob detection on these images, I found myself having little success. I was also struggling to find a way to count both the myogenic nuclei (purple) and the total nuclei in the picture. To solve this issue, I decided to split the image into two different color channels of red/ blue. I then made a purple channel by creating a new image of where these two channels overlapped. Now that I had a blue and purple to analyze, I greyscaled the images so that the blob detection can perform more accuratley. Re-running my results I was able to determine the precent of nuclei that were myogenically activated with consistent results. </p>
+        <img title="channels" alt="channels" src="assets/img/projects/channels.png" width="75%">
+        <p>Sample  output from Python Nuclei Detector based on images above:</p>
+        <pre><code>$  Nuclei:  1252
+        $ Myogenic Nuclei:  413
+        $ Percent of overlap:  32.98722044728434</code></pre>
+        <table>
+        <thead>
+        <tr>
+        <th>Skills Demonstrated</th>
+        <th>Project Artifacts</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>R Statistics</td>
+        <td><a href="https://github.com/agisolfi/brave-sim-teskm-rr?tab=readme-ov-file" target="_blank" rel="nofollow noopener noreferrer" class="external-link no-image">Github Repo</a></td>
+        </tr>
+        </tbody>
+        </table>
+        <h4>Benefits</h4>
+        <p>Although these results weren't perfect, I was able to produce a reproducible method of detecting nuclei within a two day timeframe. This program saved me tedious hours of counting thousands of nuclei by hand.</p>
+
+    </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Anthony Dario Gisolfi. All rights reserved.</p>
+    </footer>
+</body>
+</html>

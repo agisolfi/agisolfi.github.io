@@ -1,109 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Anthony Dario Gisolfi</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
-        <!-- Bootstrap Icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
-        <!-- SimpleLightbox plugin CSS-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://www.dropbox.com;">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About | Anthony Dario Gisolfi</title>
+         <!-- Favicon-->
+         <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
+         <link rel="stylesheet" href="styles.css">
     </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-            <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#page-top">Anthony Dario Gisolfi</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">Projects</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    </ul>
+<body>
+    <header>
+        <div class="navbar">
+            <h1>Anthony Dario Gisolfi</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Projects</a>
+                    <div class="dropdown-content">
+                        <a href="professional.html">Professional</a>
+                        <a href="academic.html">Academic</a>
+                        <a href="makerspace.html">Makerspace</a>
+                    </div>
+                <li><a href="resume.html">Resume</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <a href="professional.html">
+                        <img src="assets/img/projects/breifcase.jpeg" alt="Professional Projects">
+                        <div class="caption">Professional Projects</div>
+                    </a>
                 </div>
-            </div>
-        </nav>
-        <!-- Masthead-->
-        <header class="masthead">
-            <div class="container px-4 px-lg-5 h-100">
-                <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
-                    <div class="col-lg-8 align-self-end">
-                        <h1 class="text-white font-weight-bold">Anthony Dario Gisolfi</h1>
-                        <hr class="divider" />
-                    </div>
-                    <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 mb-5">Biomedical Engineer - Computer Scientist - Maker</p>
-                        <a class="btn btn-primary btn-xl" href="#about">Find Out More</a>
-                    </div>
+                <div class="gallery-item">
+                    <a href="academic.html">
+                        <img src="assets/img/projects/gamecock_logo.png" alt="Academic Projects">
+                        <div class="caption">Academic Projects</div>
+                    </a>
                 </div>
-            </div>
-        </header>
-        <!-- About-->
-        <section class="page-section bg-primary" id="about">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-8 text-center">
-                        <h2 class="text-white mt-0">Welcome!</h2>
-                        <hr class="divider divider-light" />
-                        <p class="text-white-75 mb-4">Thank you for exploring my online portfolio. As an entry-level job-seeking Biomedical Engineer, experimentation is a continuous aspect of my learning journey. This website serves as a collection of academic, professional, and self-motivated projects that collectively depict my wide range of passions, curious nature, and my enjoyment for problem solving.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Projects-->
-        <div id="portfolio">
-            <div class="container-fluid p-0">
-                <div class="row g-0">
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/projects/thumbnails/professional.jpeg" title="Professional">
-                            <img class="img-fluid" src="assets/img/projects/thumbnails/professional.jpeg"/>
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Projects</div>
-                                <div class="project-name">Professional</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/projects/thumbnails/Academic.png" title="Academic">
-                            <img class="img-fluid" src="assets/img/projects/thumbnails/Academic.png" />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Projects</div>
-                                <div class="project-name">Academic</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/projects/thumbnails/makerspace.jpeg" title="Makerspace">
-                            <img class="img-fluid" src="assets/img/projects/thumbnails/makerspace.jpeg" />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Projects</div>
-                                <div class="project-name">Makerspace</div>
-                            </div>
-                        </a>
-                    </div>
+                <div class="gallery-item">
+                    <a href="makerspace.html">
+                        <img src="assets/img/projects/makerspace.jpeg" alt="Makerspace Projects">
+                        <div class="caption">Makerspace Projects</div>
+                    </a>
                 </div>
             </div>
         </div>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- SimpleLightbox plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    </body>
+    </section>
+
+
+    <footer>
+        <p>© 2024 Anthony Dario Gisolfi. All rights reserved.</p>
+    </footer>
+</body>
 </html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://www.dropbox.com;">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Detecting Nuclei with Python | Anthony Dario Gisolfi</title>
+         <!-- Favicon-->
+         <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
+         <link rel="stylesheet" href="styles.css">
+    </head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1>Anthony Dario Gisolfi</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Projects</a>
+                    <div class="dropdown-content">
+                        <a href="professional.html">Professional</a>
+                        <a href="academic.html">Academic</a>
+                        <a href="makerspace.html">Makerspace</a>
+                    </div>
+                <li><a href="resume.html">Resume</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="content container">
+        <div>  
+            <h1>Bone Indentation Device</h1>
+            <h4>Motivation</h4>
+            <p>As part of the Biomedical Engineering curriculum at the University of South Carolina, all seniors participate in creating a senior design project. Students were tasked with examining the current healthcare market and finding an area which they want to improve. Our group decided, after speaking with a surgeon at Prisma Health, that there was a need to create a handheld bone indentation device capable of assessing if a bone screw will hold during surgery.</p>
+            <h4>Challenge</h4>
+            <p>Our group was to make a fully functional prototype of a bone indentation, within the scope of an engineering class and a budget of $1000, and perform verification/validation tests of the device all while maintaining proper documentation in a Design History File. </p>
+            <h4>Solution - Project is Currently in Progress</h4>
+            <p>Currently, a semi functional prototype has been created capable of displaying the length the bone indenter has displaced onto an on board LCD screen.</p>
+            <h4>Approach - Project is Currently in Progress</h4>
+            <p>Current bone indentation devices are typically bulky and expensive. Our group designed a handheld device capable of being brought into the operating room. </p>
+            <p>The device works by a motor driven linear actuator indenting 1/32" into a bone and displaying the force created to a LCD screen for the user to read. In theory, the device would be sampled on various types of bones which would then have bone screws drilled into them. This would allow for a comparison of force levels to success rates of bone screws and their pullout strengths.  </p>
+            <p>The mechanical components of the device consists of a motor that drives a linear actuator which is attached to the indenter probe. Attached to the linear actuator is a displacement sensor capable of measuring the distance the actuator has moved. These components are attached to a breadboard and Arduino board that control the LCD screen and receive input from the function buttons. These components are powered by a 12V battery and a converter that steps the voltage down to 5V for the Arduino and less demanding components.</p>
+            <h4>Benefits</h4>
+            <p>This project was designed to improve the current market of handheld bone indentation devices so that they may be used to identify whether a bone could sustain a bone screw. It also helped to build the design, documentation, and manufacturing skills of my group and I and shows the cumulative knowledge of my undergraduate degree.  </p>
+            <table>
+            <thead>
+            <tr>
+            <th>Skills Demonstrated</th>
+            <th>Project Artifacts</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>Technical Writing and Design Documentation</td>
+            <td><a href="assets/img/projects/Final Design History File - Group 6.pdf">Design History File</a></td>
+            </tr>
+            <tr>
+            <td>Soldering</td>
+            <td>See Images Below</td>
+            </tr>
+            <tr>
+            <td>Arduino IDE</td>
+            <td>See Code Below</td>
+            </tr>
+            </tbody>
+            </table>
+            <p><img title="LCD Welcome Screen" alt="LCD Welcome Screen" src="assets/img/projects/innodent_screen.png"><img title="Prototype in Progress" alt="Prototype in Progress" src="assets/img/projects/innodent.png" width="40%"></p>
+            <h4>Current Arduino Code</h4>
+            <pre><code class="language-cpp">// Define the number of buttons
+            const int numButtons = 3;
+            const int analogPin = A1;
+            #include &lt;LiquidCrystal.h&gt;
+
+            // Pin numbers for the buttons
+            const int buttonPins[numButtons] = {10, 12, 11};  // Example pins, modify as needed
+
+            // Button states and variables for each button
+            int buttonStates[numButtons] = {HIGH};   
+            int lastButtonStates[numButtons] = {HIGH};
+            unsigned long lastDebounceTimes[numButtons] = {0};
+            unsigned long holdStartTimes[numButtons] = {0};
+            const unsigned long holdDuration = 1000; // Duration threshold to consider the button as held (in milliseconds)
+            const unsigned long debounceDelay = 50;   // Delay time to debounce the button
+            LiquidCrystal lcd(9, 8, 7, 6, 5, 4);
+
+            void setup() {
+            lcd.setCursor(0, 0);
+            Serial.begin(9600);  // Initialize serial communication
+
+            // set up the LCD's number of columns and rows:
+            lcd.begin(16, 2);
+            // Clears the LCD screen
+            lcd.clear();
+
+            lcd.print("Welcome to");
+            lcd.setCursor(0, 1);
+            // Print a message to the LCD.
+            lcd.print("InnoDent!");
+
+            // Set button pins as input with internal pull-up resistors
+            for (int i = 0; i &lt; numButtons; i++) {
+            pinMode(buttonPins[i], INPUT_PULLUP);
+            }
+            }
+
+            void loop() {
+            // Check all buttons
+            for (int i = 0; i &lt; numButtons; i++) {
+            checkButton(i);
+            }
+            }
+
+            // Function to check button state
+            void checkButton(int buttonIndex) {
+            int reading = digitalRead(buttonPins[buttonIndex]);  // Read the state of the button
+
+            // Check if the button state has changed
+            if (reading != lastButtonStates[buttonIndex]) {
+            lastDebounceTimes[buttonIndex] = millis();  // Update the debounce time
+            }
+
+            // Check if debounce delay has passed
+            if ((millis() - lastDebounceTimes[buttonIndex]) &gt; debounceDelay) {
+            // Check if the button state has changed and is stable
+            if (reading != buttonStates[buttonIndex]) {
+            buttonStates[buttonIndex] = reading; // Update the button state
+
+            // Check if the button is pressed
+            if (buttonStates[buttonIndex] == LOW) {
+            holdStartTimes[buttonIndex] = millis(); // Record the start time of the hold
+            buttonPressed(buttonIndex); // Call function for button press
+            } else {
+            // Button is released, reset hold start time
+            holdStartTimes[buttonIndex] = 0;
+            buttonReleased(buttonIndex); // Call function for button release
+            }
+            }
+            }
+
+            // Check if the button is being held down
+            if (buttonStates[buttonIndex] == LOW &amp;&amp; millis() - holdStartTimes[buttonIndex] &gt;= holdDuration) {
+            buttonHeld(buttonIndex); // Call function for button hold
+            }
+
+            lastButtonStates[buttonIndex] = reading;  // Update the last button state
+            }
+
+            // Function to handle button press
+            void buttonPressed(int buttonIndex) {
+            Serial.print("Button ");
+            Serial.print(buttonIndex);
+            Serial.println(" pressed!");
+
+            // Execute different actions based on the button index
+            if (buttonIndex == 0) {
+            // Action for button 0
+            // Your code here
+            lcd.clear();
+            lcd.setCursor(0, 0);
+            lcd.print("Starting Test");
+            delay(1000);
+
+            } else if (buttonIndex == 1) {
+            // Action for button 1
+            // Your code here
+            lcd.clear();
+            lcd.setCursor(0, 0);
+            lcd.print("Forward");
+            delay(1000);
+
+            } else if (buttonIndex == 2) {
+            // Action for button 2
+            // Your code here
+            lcd.clear();
+            lcd.setCursor(0, 0);
+            lcd.print("Backward");
+
+            }
+            }
+
+            // Function to handle button release
+            void buttonReleased(int buttonIndex) {
+            Serial.print("Button ");
+            Serial.print(buttonIndex);
+            Serial.println(" released!");
+
+            // Your code here for what you want to happen when the button is released
+
+            lcd.setCursor(0, 0);
+            // set up the LCD's number of columns and rows:
+            lcd.begin(16, 2);
+            // Clears the LCD screen
+            lcd.clear();
+
+            lcd.print("Welcome to");
+            lcd.setCursor(0, 1);
+            // Print a message to the LCD.
+            lcd.print("InnoDent!");
+            }
+
+            // Function to handle button hold
+            void buttonHeld(int buttonIndex) {
+            Serial.print("Button ");
+            Serial.print(buttonIndex);
+            Serial.println(" held down!");
+            // Your code here for what you want to happen when the button is held down
+            float sensorValue = analogRead(analogPin); // Read the value from the analog pin
+            Serial.println(sensorValue); // Print the value to the serial monitor
+            delay(500); // Wait for a second before reading again
+            float calcValue = (sensorValue/1023) * 2;
+
+            lcd.clear();
+            lcd.setCursor(0, 0);
+            lcd.print("Displacement:");
+            lcd.setCursor(0, 1);
+            Serial.println(calcValue);
+            lcd.print(calcValue);
+            lcd.print(" Inches");
+            delay(500);
+
+            }
+            </code></pre>
+ 
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Anthony Dario Gisolfi. All rights reserved.</p>
+    </footer>
+</body>
+</html>

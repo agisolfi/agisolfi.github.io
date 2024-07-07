@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://www.dropbox.com;">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Detecting Nuclei with Python | Anthony Dario Gisolfi</title>
+         <!-- Favicon-->
+         <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
+         <link rel="stylesheet" href="styles.css">
+    </head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1>Anthony Dario Gisolfi</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Projects</a>
+                    <div class="dropdown-content">
+                        <a href="professional.html">Professional</a>
+                        <a href="academic.html">Academic</a>
+                        <a href="makerspace.html">Makerspace</a>
+                    </div>
+                <li><a href="resume.html">Resume</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="content container">
+        <div class="col-md-9 blog-main order-first order-md-2">
+            <h1>Analyzing Pressure Drop within a Pipe</h1>
+            <h4>Motivation</h4>
+            <p>During my junior year, I had the pleasure of taking fluid mechanics with professor Mostafa Mobli of the aerospace engineering department at USC. Despite the innate difficulty of this class, I found it to be one of the most enjoyable of my whole college experience. As the final project of this course, students were tasked with analyzing pressure drop within a pipe using Ansys Fluent.  </p>
+            <h4>Challenge</h4>
+            <p>Simulations were to include 2 different types of fluid, 2 different velocities (turbulent/laminar), 2 different pipe diameters, and 2 different shaped obstructions. Students would then determine which flow had model had preformed most successfully.</p>
+            <h4>Solution</h4>
+            <p>Optimal model: 2m circular obstruction with laminar octane flow.</p>
+            <h4>Approach</h4>
+            <p>For my project I utilized pipe diameters of 1 and 2 meters, circular and triangular obstructions, turbulent and laminar velocities for each fluid of water and octane. After 40+ hours of work, as it was my first time utilizing Ansys software, I completed the report and determined the most optimal model was the 2m circular obstruction with laminar octane flow. Below is an image of some of the Ansys simulations.</p>
+            <table>
+            <thead>
+            <tr>
+            <th>Skills Demonstrated</th>
+            <th>Project Artifacts</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>Ansys Fluent</td>
+            <td><a href="assets/img/projects/Fluids Project.pdf">Fluids Report</a></td>
+            </tr>
+            </tbody>
+            </table>
+            <p><img title="flow" alt="flow" src="assets/img/projects/flow.png" width="75%"></p>
+            <h4>Benefits</h4>
+            <p>Analysis of pressure drop is key concept in many industries such as healthcare and oil manufacturing.</p>
+            <p>Healthcare professionals require pressure drop to fully understand how arteries pump blood in the
+            human body. Research of pressure drop in this field can help to diagnose dangerous diseases that
+            involve blood pressure like atherosclerosis. </p>
+            <p>It is important for the oil and gas industry to properly
+            understand how the pressure acts in these pipes to prevent leaks. In pipe systems with multiple
+            branches, pressure drop can be used as a method to determine the efficiency of the system.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Anthony Dario Gisolfi. All rights reserved.</p>
+    </footer>
+</body>
+</html>
