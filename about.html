@@ -2,109 +2,12 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://www.dropbox.com;">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>About</title>
          <!-- Favicon-->
          <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                line-height: 1.6;
-                margin: 0;
-                padding: 0;
-                background-color: #e5e5e5ed;
-            }
-            .container {
-                width: 80%;
-                margin: auto;
-                overflow: hidden;
-            }
-            header {
-                background: #333;
-                color: #fff;
-                padding-top: 30px;
-                min-height: 70px;
-            }
-            header a {
-                color: #fff;
-                text-decoration: none;
-                text-transform: uppercase;
-                font-size: 16px;
-            }
-            header ul {
-                padding: 0;
-                list-style: none;
-            }
-            header li {
-                display: inline;
-                padding: 0 20px 0 20px;
-            }
-            .showcase {
-                min-height: 400px;
-                background: url('your-image.jpg') no-repeat center center/cover;
-                text-align: center;
-                color: #fff;
-            }
-            .showcase h1 {
-                margin-top: 100px;
-                font-size: 55px;
-                margin-bottom: 10px;
-            }
-            .showcase p {
-                font-size: 20px;
-            }
-            .content {
-                padding: 20px;
-                background: #fff;
-                margin-top: 20px;
-            }
-            .content h2 {
-                text-align: center;
-                color: #333;
-            }
-            .gallery {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 10px;
-                justify-content: center;
-            }
-            .gallery img {
-                max-width: 100%;
-                height: auto;
-                display: block;
-                border: 2px solid #ccc;
-                border-radius: 5px;
-            }
-            .gallery-item {
-                flex: 1 1 calc(33.333% - 20px);
-                box-sizing: border-box;
-                margin-bottom: 20px;
-            }
-            .gallery-item img {
-                width: 100%;
-                height: auto;
-            }
-            .content p {
-                margin: 20px 0;
-            }
-            footer {
-                text-align: center;
-                padding: 20px;
-                background: #333;
-                color: #fff;
-                margin-top: 20px;
-            }
-            @media (max-width: 768px) {
-                .gallery-item {
-                    flex: 1 1 calc(50% - 20px);
-                }
-            }
-            @media (max-width: 480px) {
-                .gallery-item {
-                    flex: 1 1 100%;
-                }
-            }
-        </style>
+         <link rel="stylesheet" href="styles.css">
     </head>
 <body>
     <header>
@@ -113,7 +16,14 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Projects</a>
+                    <div class="dropdown-content">
+                        <a href="professional.html">Professional</a>
+                        <a href="academic.html">Academic</a>
+                        <a href="makerspace.html">Makerspace</a>
+                    </div>
+                <li><a href="resume.html">Resume</a></li>
             </ul>
         </div>
     </header>
@@ -126,9 +36,9 @@
             <p>Even before I began my undergraduate studies at the University of South Carolina I have always had a passion for design and creativity. This intense interest in design was one of the main reasons I knew I had to study engineering. I was led to the field of biomedical engineering after dissecting what truly sparked my interest in design. As a child with poor eyesight, I spent many hours at the optometrist. I was always fascinated by the <em>magical gadgets</em> which were used to make my vision better. I have vivid memories of staring wonderingly into a refractometer just fascinated by how it works. When it came time to choose a major for college, I wanted my education and career decisions to be a part of bringing such wonderment to others. I realized my youthful curiosity could be leveraged to make a positive impact on the lives of others by exploring the intersections of technology with with one or more of the fields of aerospace, medical devices, and biomechanics.</p>
             <h4>Academic Journey</h4>
             <p>Studying engineering has possibly been one of the best decisions I have made in my life. Besides the natural interest I have in the topic, it has taught me great lessons of teamwork, camaraderie, and the meaning of hard work. Most importantly, it has taught me self confidence. </p>
-            <div class="notices red">
+            <blockquote>
             <p>"Each time we face our fear, we gain strength, courage, and confidence in the <strong>doing</strong>." -- Theodore Roosevelt</p>
-            </div>
+            </blockquote>
             <p>Coming into college I questioned whether I was going to be able to thrive in such a difficult major. I had always had been a student with good grades but I was unsure about my ability to transform the theoretical into the practical.  Time and time again, I found myself doubting my ability to complete a project, comprehend a topic, and have faith in my abilities. Yet with the help of my friends, professors, and a ton of work, I proved myself wrong. As time went on, I began to doubt myself less. I would be lying if I said I never doubt myself anymore, but engineering has given me the confidence to be more comfortable with challenges. </p>
             <h4>My Career Journey</h4>
             <p>I am an engineer at heart and as an <strong>entry-level professional</strong>, I have no alliance to a specific field. My degree in <em>Biomedical Engineering</em> has armed me with the tools necessary to feed my natural curiosity and to contribute to a wide range of engineering fields.  My various passions have led to believe in the importance of multidisciplinary study, especially after seeing how it has helped me complete projects that are near to my heart. For example, my love of rockets as a child continues to fuel an interest in aerospace engineering. Furthermore, after taking a python class my sophomore year, I realized how powerful computer science was to my engineering "tool belt". This became significantly evident during my Biomedical Engineering Research for Active Military and Veterans at the University of Texas at San Antonio. In order for me to establish credible results for the diabetic skeletal muscle data we collected, I needed to quickly learn and apply <em>Python Machine Learning</em> techniques. This lead me to add a minor in <strong>Computer Science</strong> to my degree.  </p>
