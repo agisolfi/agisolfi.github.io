@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://www.dropbox.com;">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Detecting Nuclei with Python | Anthony Dario Gisolfi</title>
+        <title>Innodent | Anthony Dario Gisolfi</title>
          <!-- Favicon-->
          <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
          <link rel="stylesheet" href="styles.css">
@@ -23,7 +23,7 @@
                         <a href="academic.html">Academic</a>
                         <a href="makerspace.html">Makerspace</a>
                     </div>
-                <li><a href="resume.html">Resume</a></li>
+                <li><a href="https://www.dropbox.com/scl/fi/jy9hpx85bk0xy2bwolise/adg-resume-Q2-2024-v1.pdf?rlkey=p7n6oht05gy2ehjh3ludjxaom&st=49nvlud2&dl=0">Resume</a></li>
             </ul>
         </div>
     </header>
@@ -65,165 +65,306 @@
             </tr>
             </tbody>
             </table>
-            <p><img title="LCD Welcome Screen" alt="LCD Welcome Screen" src="assets/img/projects/innodent_screen.png"><img title="Prototype in Progress" alt="Prototype in Progress" src="assets/img/projects/innodent.png" width="40%"></p>
-            <h4>Current Arduino Code</h4>
-            <pre><code class="language-cpp">// Define the number of buttons
-            const int numButtons = 3;
-            const int analogPin = A1;
-            #include &lt;LiquidCrystal.h&gt;
-
-            // Pin numbers for the buttons
-            const int buttonPins[numButtons] = {10, 12, 11};  // Example pins, modify as needed
-
-            // Button states and variables for each button
-            int buttonStates[numButtons] = {HIGH};   
-            int lastButtonStates[numButtons] = {HIGH};
-            unsigned long lastDebounceTimes[numButtons] = {0};
-            unsigned long holdStartTimes[numButtons] = {0};
-            const unsigned long holdDuration = 1000; // Duration threshold to consider the button as held (in milliseconds)
-            const unsigned long debounceDelay = 50;   // Delay time to debounce the button
-            LiquidCrystal lcd(9, 8, 7, 6, 5, 4);
-
-            void setup() {
-            lcd.setCursor(0, 0);
-            Serial.begin(9600);  // Initialize serial communication
-
-            // set up the LCD's number of columns and rows:
-            lcd.begin(16, 2);
-            // Clears the LCD screen
-            lcd.clear();
-
-            lcd.print("Welcome to");
-            lcd.setCursor(0, 1);
-            // Print a message to the LCD.
-            lcd.print("InnoDent!");
-
-            // Set button pins as input with internal pull-up resistors
-            for (int i = 0; i &lt; numButtons; i++) {
-            pinMode(buttonPins[i], INPUT_PULLUP);
-            }
-            }
-
-            void loop() {
-            // Check all buttons
-            for (int i = 0; i &lt; numButtons; i++) {
-            checkButton(i);
-            }
-            }
-
-            // Function to check button state
-            void checkButton(int buttonIndex) {
-            int reading = digitalRead(buttonPins[buttonIndex]);  // Read the state of the button
-
-            // Check if the button state has changed
-            if (reading != lastButtonStates[buttonIndex]) {
-            lastDebounceTimes[buttonIndex] = millis();  // Update the debounce time
-            }
-
-            // Check if debounce delay has passed
-            if ((millis() - lastDebounceTimes[buttonIndex]) &gt; debounceDelay) {
-            // Check if the button state has changed and is stable
-            if (reading != buttonStates[buttonIndex]) {
-            buttonStates[buttonIndex] = reading; // Update the button state
-
-            // Check if the button is pressed
-            if (buttonStates[buttonIndex] == LOW) {
-            holdStartTimes[buttonIndex] = millis(); // Record the start time of the hold
-            buttonPressed(buttonIndex); // Call function for button press
-            } else {
-            // Button is released, reset hold start time
-            holdStartTimes[buttonIndex] = 0;
-            buttonReleased(buttonIndex); // Call function for button release
-            }
-            }
-            }
-
-            // Check if the button is being held down
-            if (buttonStates[buttonIndex] == LOW &amp;&amp; millis() - holdStartTimes[buttonIndex] &gt;= holdDuration) {
-            buttonHeld(buttonIndex); // Call function for button hold
-            }
-
-            lastButtonStates[buttonIndex] = reading;  // Update the last button state
-            }
-
-            // Function to handle button press
-            void buttonPressed(int buttonIndex) {
-            Serial.print("Button ");
-            Serial.print(buttonIndex);
-            Serial.println(" pressed!");
-
-            // Execute different actions based on the button index
-            if (buttonIndex == 0) {
-            // Action for button 0
-            // Your code here
-            lcd.clear();
-            lcd.setCursor(0, 0);
-            lcd.print("Starting Test");
-            delay(1000);
-
-            } else if (buttonIndex == 1) {
-            // Action for button 1
-            // Your code here
-            lcd.clear();
-            lcd.setCursor(0, 0);
-            lcd.print("Forward");
-            delay(1000);
-
-            } else if (buttonIndex == 2) {
-            // Action for button 2
-            // Your code here
-            lcd.clear();
-            lcd.setCursor(0, 0);
-            lcd.print("Backward");
-
-            }
-            }
-
-            // Function to handle button release
-            void buttonReleased(int buttonIndex) {
-            Serial.print("Button ");
-            Serial.print(buttonIndex);
-            Serial.println(" released!");
-
-            // Your code here for what you want to happen when the button is released
-
-            lcd.setCursor(0, 0);
-            // set up the LCD's number of columns and rows:
-            lcd.begin(16, 2);
-            // Clears the LCD screen
-            lcd.clear();
-
-            lcd.print("Welcome to");
-            lcd.setCursor(0, 1);
-            // Print a message to the LCD.
-            lcd.print("InnoDent!");
-            }
-
-            // Function to handle button hold
-            void buttonHeld(int buttonIndex) {
-            Serial.print("Button ");
-            Serial.print(buttonIndex);
-            Serial.println(" held down!");
-            // Your code here for what you want to happen when the button is held down
-            float sensorValue = analogRead(analogPin); // Read the value from the analog pin
-            Serial.println(sensorValue); // Print the value to the serial monitor
-            delay(500); // Wait for a second before reading again
-            float calcValue = (sensorValue/1023) * 2;
-
-            lcd.clear();
-            lcd.setCursor(0, 0);
-            lcd.print("Displacement:");
-            lcd.setCursor(0, 1);
-            Serial.println(calcValue);
-            lcd.print(calcValue);
-            lcd.print(" Inches");
-            delay(500);
-
-            }
-            </code></pre>
- 
+            <p><img title="LCD Welcome Screen" alt="LCD Welcome Screen" src="assets/img/projects/innodent.png" width="25%">
+                <img title="Prototype" alt="Prototype" src="assets/img/projects/innodent 2.png" width="40%"></p>
+                <video controls="controls" loop="loop" autoplay="autoplay" muted="muted" width="25%" alt="Prototype in Use"><source src="assets/img/projects/innodent 3.mov">Your browser does not support the video tag.</video>
+            </div>
+        </section>
+            
+            
+            
+        <section class="content container">
+            <h4>Arduino Code</h4>
+            <div class="content container">
+            <pre>
+                // Define the number of buttons
+                const int numButtons = 3;
+                const int analogPin = A1;
+                #include <LiquidCrystal.h>
+                
+                // Pin numbers for the buttons
+                const int buttonPins[numButtons] = {A2, 5, 4};  // Example pins, modify as needed
+                
+                // Button states and variables for each button
+                int buttonStates[numButtons] = {HIGH};   
+                int lastButtonStates[numButtons] = {HIGH};
+                unsigned long lastDebounceTimes[numButtons] = {0};
+                unsigned long holdStartTimes[numButtons] = {0};
+                const unsigned long holdDuration = 1000; // Duration threshold to consider the button as held (in milliseconds)
+                const unsigned long debounceDelay = 50;   // Delay time to debounce the button
+                LiquidCrystal lcd(12, 11, 10, 9, 8 ,7);
+                
+                // Pins for motor a
+                const int dirPin = 2;
+                const int stepPin = 3;
+                const int stepsPerRevolution = 5000;
+                float calcValue=0;
+                
+                
+                void setup() {
+                  lcd.setCursor(0, 0);
+                  Serial.begin(9600);  // Initialize serial communication
+                  
+                  // set up the LCD's number of columns and rows:
+                  lcd.begin(16, 2);
+                  // Clears the LCD screen
+                  lcd.clear();
+                
+                  lcd.print("Welcome to");
+                  lcd.setCursor(0, 1);
+                    // Print a message to the LCD.
+                    lcd.print("InnoDent!");
+                  // Declare motor pins as Outputs
+                  pinMode(stepPin, OUTPUT);
+                  pinMode(dirPin, OUTPUT);
+                
+                  // Set button pins as input with internal pull-up resistors
+                  for (int i = 0; i < numButtons; i++) {
+                    pinMode(buttonPins[i], INPUT_PULLUP);
+                  }
+                }
+                
+                void loop() {
+                  // Check all buttons
+                  for (int i = 0; i < numButtons; i++) {
+                    checkButton(i);
+                  }
+                }
+                
+                // Function to check button state
+                void checkButton(int buttonIndex) {
+                  int reading = digitalRead(buttonPins[buttonIndex]);  // Read the state of the button
+                
+                  // Check if the button state has changed
+                  if (reading != lastButtonStates[buttonIndex]) {
+                    lastDebounceTimes[buttonIndex] = millis();  // Update the debounce time
+                  }
+                
+                  // Check if debounce delay has passed
+                  if ((millis() - lastDebounceTimes[buttonIndex]) > debounceDelay) {
+                    // Check if the button state has changed and is stable
+                    if (reading != buttonStates[buttonIndex]) {
+                      buttonStates[buttonIndex] = reading; // Update the button state
+                
+                      // Check if the button is pressed
+                      if (buttonStates[buttonIndex] == LOW) {
+                        holdStartTimes[buttonIndex] = millis(); // Record the start time of the hold
+                        buttonPressed(buttonIndex); // Call function for button press
+                      } else {
+                        // Button is released, reset hold start time
+                        holdStartTimes[buttonIndex] = 0;
+                        buttonReleased(buttonIndex); // Call function for button release
+                      }
+                    }
+                  }
+                
+                  // Check if the button is being held down
+                  if (buttonStates[buttonIndex] == LOW && millis() - holdStartTimes[buttonIndex] >= holdDuration) {
+                    buttonHeld(buttonIndex); // Call function for button hold
+                  }
+                
+                  lastButtonStates[buttonIndex] = reading;  // Update the last button state
+                }
+                
+                // Function to handle button press
+                void buttonPressed(int buttonIndex) {
+                  Serial.print("Button ");
+                  Serial.print(buttonIndex);
+                  Serial.println(" pressed!");
+                  
+                  // Execute different actions based on the button index
+                  if (buttonIndex == 0) {
+                    // Action for button 0
+                    // Your code here
+                    lcd.clear();
+                    lcd.setCursor(0, 0);
+                    lcd.print("Starting Test");
+                    delay(1000);
+                    test();
+                
+                    //lcd.clear();
+                    //lcd.setCursor(0, 0);
+                    //lcd.print("Force Reading:");
+                    //lcd.setCursor(0, 1);
+                    //lcd.setCursor(0, 1);
+                    //lcd.print("75 N");
+                      
+                    //delay(5000);
+                  
+                    
+                
+                  } else if (buttonIndex == 1) {
+                    // Action for button 1
+                    // Your code here
+                    lcd.clear();
+                    lcd.setCursor(0, 0);
+                    lcd.print("Forward");
+                    delay(1000);
+                    forward();
+                  
+                  } else if (buttonIndex == 2) {
+                    // Action for button 2
+                    // Your code here
+                    lcd.clear();
+                    lcd.setCursor(0, 0);
+                    lcd.print("Backward");
+                    backward();
+                
+                  }
+                }
+                
+                // Function to handle button release
+                void buttonReleased(int buttonIndex) {
+                  Serial.print("Button ");
+                  Serial.print(buttonIndex);
+                  Serial.println(" released!");
+                
+                 
+                
+                  // Your code here for what you want to happen when the button is released
+                
+                  lcd.setCursor(0, 0);
+                  // set up the LCD's number of columns and rows:
+                  lcd.begin(16, 2);
+                  // Clears the LCD screen
+                  lcd.clear();
+                
+                  lcd.print("Welcome to");
+                  lcd.setCursor(0, 1);
+                    // Print a message to the LCD.
+                    lcd.print("InnoDent!");
+                }
+                
+                // Function to handle button hold
+                void buttonHeld(int buttonIndex) {
+                  Serial.print("Button ");
+                  Serial.print(buttonIndex);
+                  Serial.println(" held down!");
+                  // Your code here for what you want to happen when the button is held down
+                  float sensorValue = analogRead(analogPin); // Read the value from the analog pin
+                  Serial.println(sensorValue); // Print the value to the serial monitor
+                  delay(500); // Wait for a second before reading again
+                  calcValue = (sensorValue/1023) * 2;
+                
+                  // lcd.clear();
+                  // lcd.setCursor(0, 0);
+                  // lcd.print("Displacement:");
+                  // lcd.setCursor(0, 1);
+                  Serial.println(calcValue);
+                  // lcd.print(calcValue);
+                  // lcd.print(" Inches");
+                    
+                  delay(100);
+                  
+                }
+                //Function to Perform Test
+                void test() {
+                  // Set motor direction clockwise
+                  digitalWrite(dirPin, HIGH);
+                  const int testDelay(50000);
+                  Serial.println("Going forwards");
+                  float init_value = analogRead(analogPin);
+                  float init_Voltage = (init_value/1023) * 4.70; 
+                  float init_displacement = (0.3901*init_Voltage) + 0.0144;
+                  float max_dis = init_displacement + 0.03;
+                  // spin motor
+                  int x = 0; 
+                  unsigned long startTime = millis(); 
+                  while(x < stepsPerRevolution)
+                  {
+                    digitalWrite(stepPin, HIGH);
+                    delayMicroseconds(testDelay);  
+                    digitalWrite(stepPin, LOW); 
+                    delayMicroseconds(testDelay);
+                    unsigned long programTime = millis(); 
+                    unsigned long runTime = programTime - startTime;
+                    x++;
+                    float sensorvalue = analogRead(analogPin);
+                    float voltage = (sensorvalue/1023) * 4.70;
+                    float displacement = (0.3901*voltage) + 0.0144;
+                    float currentDisplacement = displacement - init_displacement;
+                    if(runTime >= 5000 || displacement >= 1.846)
+                    {
+                      digitalWrite(stepPin, LOW);
+                      Serial.print(runTime); 
+                      break;
+                    }
+                  }
+                  float sensorvalue = analogRead(analogPin);
+                  float voltage = (sensorvalue/1023) * 4.70;
+                  float displacement = (0.3901*voltage) + 0.0144;
+                  float currentDisplacement = displacement - init_displacement;
+                  lcd.clear();
+                  lcd.setCursor(0, 0);
+                  lcd.print("Displacement:");
+                  lcd.setCursor(0, 1);
+                  //Serial.println(displacement);
+                  lcd.print(currentDisplacement, 3);
+                  lcd.print(" Inches"); 
+                
+                  delay(1000); // Wait a second
+                  
+                }
+                //Function to Drive Motor Forward
+                void forward() {
+                  // Set motor direction clockwise
+                  digitalWrite(dirPin, HIGH);
+                  Serial.println("Going forwards");
+                  const int stepDelay(300);
+                  // spin motor
+                  int x = 0; 
+                  while(x < stepsPerRevolution)
+                  {
+                    digitalWrite(stepPin, HIGH);
+                    delayMicroseconds(stepDelay);  
+                    digitalWrite(stepPin, LOW); 
+                    delayMicroseconds(stepDelay);       
+                    x++;
+                    float sensorvalue = analogRead(analogPin);
+                    float voltage = (sensorvalue/1023) * 4.70;
+                    float displacement = (0.3901*voltage) + 0.0144;
+                    if(digitalRead(5) == HIGH||displacement >= 1.846)
+                    {
+                      digitalWrite(stepPin, LOW); 
+                      // displacement = (analogRead(analogPin)/1023) * 2;
+                      break;
+                    } 
+                  }
+                  delay(100); // Wait a second
+                  
+                }
+                
+                //Function to Drive Motor Forward
+                void backward() {
+                  // Set motor direction counterclockwise
+                  digitalWrite(dirPin, LOW);
+                  Serial.println("Going Backwards");
+                  const int stepDelay(300);
+                  // Spin motor quickly
+                  int x = 0;
+                  while(x < stepsPerRevolution)
+                  {
+                    digitalWrite(stepPin, HIGH);
+                    delayMicroseconds(stepDelay);  
+                    digitalWrite(stepPin, LOW); 
+                    delayMicroseconds(stepDelay);       
+                    x++;
+                    float sensorvalue = analogRead(analogPin);
+                    float voltage = (sensorvalue/1023) * 4.70;
+                    float displacement = (0.3901*voltage) + 0.0144;
+                    if(digitalRead(4) == HIGH||displacement <= 0.10)
+                    {
+                      digitalWrite(stepPin, LOW); 
+                      break;
+                    } 
+                  }
+                  delay(100); // Wait a second
+                  
+                }                
+            </pre>
         </div>
-    </section>
+        </section>
+
 
     <footer>
         <p>© 2024 Anthony Dario Gisolfi. All rights reserved.</p>

@@ -268,3 +268,35 @@ footer {
         flex: 1 1 100%;
     }
 }
+
+/* Rounded Button Styles */
+.rounded-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 26px;
+    background-color: #333; /* Button background color */
+    color: #ffffff; /* Button text color */
+    border: none;
+    border-radius: 25px; /* Adjust this value for more or less rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.rounded-button:hover {
+    background-color: #000000; /* Darker shade for hover effect */
+}
+
+/* Code Block Styles */
+pre {
+    background-color: #f8f8f8;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+}
+
+code.arduino {
+    font-family: Consolas, Monaco, 'Andale Mono', monospace; /* Use a monospace font for code */
+    font-size: 14px;
+    color: #333; /* Text color */
+}
