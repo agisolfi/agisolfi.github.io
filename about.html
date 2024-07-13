@@ -8,6 +8,7 @@
          <!-- Favicon-->
          <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
          <link rel="stylesheet" href="styles.css">
+         <script src="javascript/script.js"></script>
     </head>
 <body>
     <header>
@@ -49,30 +50,40 @@
          </div>
     </section>
 
-    <section>
-        <div class="content container">
-        <div class="gallery">
-            <div class="gallery-item">
-                <img src="assets/img/about/IMG_7105.png">
+    <section class="content container">
+        <div class="about-section">
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="assets/img/about/IMG_7105.png" alt="My Family">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/img/about/IMG_1572.png" alt="Tommy and I">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/img/about/IMG_7894.png" alt="Last Football Game at USC">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/img/about/IMG_5734 2.JPG" alt="First Day of Classes 2022">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/img/about/photo may 04 2024, 4 50 38 pm.JPG" alt="First Post Grad Hug with my Mom">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/img/about/IMG_6830.png" alt="First Day of Classes 2023">
+                </div>
             </div>
-            <div class="gallery-item">
-                <img src="assets/img/about/IMG_1572.png" >
-            </div>
-            <div class="gallery-item">
-                <img src="assets/img/about/IMG_7894.png">
-            </div>
-            <div class="gallery-item">
-                <img src="assets/img/about/IMG_5734 2.JPG" >
-            </div>
-            <div class="gallery-item">
-                <img src="assets/img/about/photo may 04 2024, 4 50 38 pm.JPG">
-            </div>
-            <div class="gallery-item">
-                <img src="assets/img/about/IMG_6830.png">
-            </div>
-        </div>   
-        </div>       
+        </div>
     </section>
+    
+    <!-- The Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+    
+    
+    
 
     <footer>
         <p>© 2024 Anthony Dario Gisolfi. All rights reserved.</p>
