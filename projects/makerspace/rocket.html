@@ -8,6 +8,7 @@
          <!-- Favicon-->
          <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.png" />
          <link rel="stylesheet" href="../../styles.css">
+         <script src="../../javascript/script.js"></script>
     </head>
 <body>
     <header>
@@ -56,10 +57,26 @@
             </table>
             <h4>Benefits</h4>
             <p>This design is cheap but more importantly it is easy to fabricate and reproduce. This will allow for future iterations to be adapted quickly.</p>
-            <p><img title="Rocket on Stand" alt="Rocket on Stand" src="../../assets/img/projects/rocket-on-stand.png"><img title="Rocket" alt="Rocket" src="../../assets/img/projects/rocket 2.png"></p>
         </div>
     </section>
 
+    <section class="content container">
+        <div class="gallery">
+            <div class="gallery-item">
+            <img src="../../assets/img/projects/rocket-on-stand.png" alt="Rocket on Stand">
+            </div>
+            <div class="gallery-item">
+            <img src="../../assets/img/projects/rocket 2.png" alt="Rocket">
+            </div>
+        </div>
+    </section>
+
+    <!-- The Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
     <footer>
         <p>© 2024 Anthony Dario Gisolfi. All rights reserved.</p>
     </footer>

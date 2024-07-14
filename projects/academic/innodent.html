@@ -8,6 +8,7 @@
          <!-- Favicon-->
          <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.png" />
          <link rel="stylesheet" href="../../styles.css">
+         <script src="../../javascript/script.js"></script>
     </head>
 <body>
     <header>
@@ -65,13 +66,31 @@
             </tr>
             </tbody>
             </table>
-            <p><img title="LCD Welcome Screen" alt="LCD Welcome Screen" src="../../assets/img/projects/innodent.png" width="25%">
-                <img title="Prototype" alt="Prototype" src="../../assets/img/projects/innodent 2.png" width="40%"></p>
-                <video controls="controls" loop="loop" autoplay="autoplay" muted="muted" width="25%" alt="Prototype in Use"><source src="../../assets/img/projects/innodent 3.mov">Your browser does not support the video tag.</video>
             </div>
         </section>
             
-            
+        <section class="content container">
+          <div class="gallery">
+              <div class="gallery-item">
+                  <img src="../../assets/img/projects/innodent.png" alt="LCD Welcome Screen">
+              </div>
+              <div class="gallery-item">
+                  <img src="../../assets/img/projects/innodent 2.png" alt="Prototype">
+              </div>
+              <div class="gallery-item">
+                <video controls="controls" loop="loop" autoplay="autoplay" muted="muted" width="25%" alt="Prototype in Use"><source src="../../assets/img/projects/innodent 3.mov">Your browser does not support the video tag.</video>
+              </div> 
+
+          </div>
+      </section>
+  
+      <!-- The Modal -->
+      <div id="imageModal" class="modal">
+          <span class="close">&times;</span>
+          <img class="modal-content" id="modalImage">
+          <div id="caption"></div>
+      </div>
+  
             
         <section class="content container">
             <h4>Arduino Code</h4>
