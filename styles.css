@@ -55,7 +55,7 @@ blockquote footer::before {
     width: 80%;
     margin: auto;
     overflow: hidden;
-    text-align: center;
+    text-align: left;
 }
 
 .pdf {
@@ -388,11 +388,18 @@ footer {
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin: 0 auto; /* Center the button horizontally */
+    text-decoration: none; /* Remove underline */
 }
 
 .rounded-button:hover {
     background-color: #000000; /* Darker shade for hover effect */
 }
+
+a.rounded-button {
+    text-align: center;
+    text-decoration: none; /* Remove underline */
+}
+
 
 /* Code Block Styles */
 pre {
