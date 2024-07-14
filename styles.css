@@ -6,10 +6,43 @@ body {
     background-color: #e5e5e5ed;
 }
 
+/* Fancy Blockquote Styles */
 blockquote {
-    background-color: #c7c6c6;
-    padding-right: 0px;
+    position: relative;
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #f9f9f9;
+    border-left: 10px solid #333;
+    font-style: italic;
+    font-size: 18px;
+    color: #555;
 }
+
+blockquote::before {
+    content: "\201C"; /* Unicode for left double quote */
+    font-size: 50px;
+    position: absolute;
+    left: 10px;
+    top: -10px;
+    color: #ccc;
+}
+
+blockquote p {
+    margin: 0;
+}
+
+blockquote footer {
+    display: block;
+    text-align: right;
+    font-size: 16px;
+    color: #777;
+    margin-top: 10px;
+}
+
+blockquote footer::before {
+    content: "\2014 \00A0"; /* Unicode for em dash and non-breaking space */
+}
+
 
 .navbar {
     width: 80%;
@@ -225,37 +258,62 @@ li.dropdown {
     margin: 20px 0;
 }
 
-.contact-section h2 {
+/* Contact Section Styles */
+.contact-section {
+    background: #f7f7f7;
+    padding: 50px 0;
+}
+
+.contact-section .container {
     text-align: center;
-    color: #333;
+    max-width: 800px;
+    margin: auto;
+}
+
+.contact-section h2 {
+    font-size: 2.5em;
     margin-bottom: 20px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .contact-info {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
+    margin-top: 30px;
 }
 
 .info-item {
+    flex: 1 1 45%;
+    background: #fff;
+    padding: 20px;
     margin: 10px;
-    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.info-item:hover {
+    transform: scale(1.05);
 }
 
 .info-label {
     font-weight: bold;
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
     display: block;
-    margin-bottom: 5px;
 }
 
 .info-value {
-    display: block;
-    color: #333;
-    font-size: 18px;
+    font-size: 1em;
+    color: #555;
 }
 
 .info-value a {
-    color: #333;
+    color: #007BFF;
     text-decoration: none;
 }
 

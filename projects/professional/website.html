@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://www.dropbox.com;">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Personal Website | Anthony Dario Gisolfi</title>
+         <!-- Favicon-->
+         <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.png" />
+         <link rel="stylesheet" href="../../styles.css">
+         <script src="../../javascript/script.js"></script>
+    </head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1>Anthony Dario Gisolfi</h1>
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Projects</a>
+                    <div class="dropdown-content">
+                        <a href="../../professional.html">Professional</a>
+                        <a href="../../academic.html">Academic</a>
+                        <a href="../../makerspace.html">Makerspace</a>
+                    </div>
+                <li><a href="https://www.dropbox.com/scl/fi/jy9hpx85bk0xy2bwolise/adg-resume-Q2-2024-v1.pdf?rlkey=p7n6oht05gy2ehjh3ludjxaom&st=49nvlud2&dl=0">Resume</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="content container">
+        <div class="col-md-9 blog-main order-first order-md-2">
+            <h1>Personal Website</h1>
+            <h4>Motivation</h4>
+            <p>After completing so many projects in my personal, professional, and academic life I wanted one centralized place to store all of my projects. I decided that a personal website would be a great way to store these projects as well as a great way to learn HTML.</p>
+            <h4>Challenge</h4>
+            <p>Without using a website template, construct a website capable of presenting past projects in a professional yet engaging manner.</p>
+            <h4>Solution</h4>
+            <p>Using HTML, CSS, Git, and Javascript a website was created.</p>
+            <h4>Approach</h4>
+            <p>I first attempted to create this website using a content management system (CMS) called GRAV. I thought this would allow me to make a good looking website while learning HTML, CSS, and Javascript but unfortunately this CMS system ended up impeding my progess. However, using GRAV CMS allowed me to create a temporary website while I forged one I was more proud of. The main issues of this first attempt involved the lack of design freedom in the CMS and my fundamental lack of knowledge of these three languages. I knew the only way to truly make this wesbite they way I wanted was to start from scratch.</p>
+            <p>I began by taking a website template and attempting to understand it. When I realized my foundational knowledge wasn't deep enough to even bend this template to my will, I simply started from nothing and added peice by peice until I had the website I wanted and consequently a better knowledge of these languages. I understand this is not the easiest nor fastest method for web develpoment (a coworker once described my approach as the nerd method) but I wanted be able to look at the website I had created and truly understand how it worked. If I simply used a template or a website building service, I would have no idea how it functioned and nothing to be proud of.</p>
+            <table>
+            <thead>
+            <tr>
+            <th>Skills Demonstrated</th>
+            <th>Project Artifacts</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>HTML, CSS, Javascript</td>
+            <td>This Website</td>
+            </tr>
+            <td>Git</td>
+            <td><a href="https://github.com/agisolfi/agisolfi.github.io">Github Repo</a></td>
+            </tbody>
+            </table>
+            <h4>Benefits</h4>
+            <p>By creating this website I have taught myself HTML, CSS, Javascript while utilizing git in my work environment. I now have a much better understanding of how websites work and simultaneously have a medium to share my favorite projects with others.</p>
+        </div>
+    </section>
+
+    <section class="content container">
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="../../assets/img/projects/oldwebsite.png" alt="First Attempt at a Personal Website">
+            </div>
+            <div class="gallery-item">
+                <img src="../../assets/img/projects/currentwebsite.png" alt="Current About Page">
+            </div>
+        </div>
+    </section>
+
+    <!-- The Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+
+    <footer>
+        <p>© 2024 Anthony Dario Gisolfi. All rights reserved.</p>
+    </footer>
+</body>
+</html>
