@@ -138,6 +138,7 @@ li.dropdown {
     position: relative;
     overflow: hidden;
     background: #f4f4f4; /* Fallback background color */
+    cursor: pointer
 }
 
 .gallery-item img {

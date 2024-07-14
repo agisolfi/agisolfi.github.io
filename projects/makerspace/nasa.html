@@ -6,22 +6,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Custom LED Sign | Anthony Dario Gisolfi</title>
          <!-- Favicon-->
-         <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
-         <link rel="stylesheet" href="styles.css">
+         <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.png" />
+         <link rel="stylesheet" href="../../styles.css">
+         <script src="javascript/script.js"></script>
     </head>
 <body>
     <header>
         <div class="navbar">
             <h1>Anthony Dario Gisolfi</h1>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../about.html">About</a></li>
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Projects</a>
                     <div class="dropdown-content">
-                        <a href="professional.html">Professional</a>
-                        <a href="academic.html">Academic</a>
-                        <a href="makerspace.html">Makerspace</a>
+                        <a href="../../professional.html">Professional</a>
+                        <a href="../../academic.html">Academic</a>
+                        <a href="../../makerspace.html">Makerspace</a>
                     </div>
                 <li><a href="https://www.dropbox.com/scl/fi/jy9hpx85bk0xy2bwolise/adg-resume-Q2-2024-v1.pdf?rlkey=p7n6oht05gy2ehjh3ludjxaom&st=49nvlud2&dl=0">Resume</a></li>
             </ul>
@@ -55,9 +56,23 @@
             </table>
             <h4>Benefits</h4>
             <p>Entirely customizeable to any word or design. Runs off rechargeable battery that can be swapped out without having to take down the sign. In the future, I would like to redesign this sign using another adhesive besides hot glue as the bonds weren't as strong as I wanted and require constant repair.</p>
-            <p><img title="NASA Sign" alt="NASA Sign" src="assets/img/projects/nasa_sign.png" width="40%"></p>
         </div>
     </section>
+
+    <section class="content container">
+            <div class="gallery">
+                <div class="gallery-item">
+                <img src="../../assets/img/projects/nasa_sign.png" alt="NASA Sign">
+                </div>
+            </div>
+    </section>
+
+    <!-- The Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
 
     <footer>
         <p>© 2024 Anthony Dario Gisolfi. All rights reserved.</p>

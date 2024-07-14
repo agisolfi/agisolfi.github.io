@@ -6,22 +6,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Detecting Nuclei with Python | Anthony Dario Gisolfi</title>
          <!-- Favicon-->
-         <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
-         <link rel="stylesheet" href="styles.css">
+         <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.png" />
+         <link rel="stylesheet" href="../../styles.css">
     </head>
 <body>
     <header>
         <div class="navbar">
             <h1>Anthony Dario Gisolfi</h1>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../about.html">About</a></li>
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Projects</a>
                     <div class="dropdown-content">
-                        <a href="professional.html">Professional</a>
-                        <a href="academic.html">Academic</a>
-                        <a href="makerspace.html">Makerspace</a>
+                        <a href="../../professional.html">Professional</a>
+                        <a href="../../academic.html">Academic</a>
+                        <a href="../../makerspace.html">Makerspace</a>
                     </div>
                 <li><a href="https://www.dropbox.com/scl/fi/jy9hpx85bk0xy2bwolise/adg-resume-Q2-2024-v1.pdf?rlkey=p7n6oht05gy2ehjh3ludjxaom&st=49nvlud2&dl=0">Resume</a></li>
             </ul>
@@ -40,9 +40,9 @@
         <h4>Approach</h4>
         <p>To begin writing my program, I knew I needed some method of object detection to determine what was a nuclei and what wasn't. After some research, I stumbled upon OpenCV, an open source python library for image detection and analysis, and began working. </p>
         <p>Each image that was analyzed looked similar to this:
-        <img title="nuclei" alt="nuclei" src="assets/img/projects/nuclei.png" width="75%"> </div></p>
+        <img title="nuclei" alt="nuclei" src="../../assets/img/projects/nuclei.png" width="75%"> </div></p>
         <p>After using OpenCV's blob detection on these images, I found myself having little success. I was also struggling to find a way to count both the myogenic nuclei (purple) and the total nuclei in the picture. To solve this issue, I decided to split the image into two different color channels of red/ blue. I then made a purple channel by creating a new image of where these two channels overlapped. Now that I had a blue and purple to analyze, I greyscaled the images so that the blob detection can perform more accuratley. Re-running my results I was able to determine the precent of nuclei that were myogenically activated with consistent results. </p>
-        <img title="channels" alt="channels" src="assets/img/projects/channels.png" width="75%">
+        <img title="channels" alt="channels" src="../../assets/img/projects/channels.png" width="75%">
         <p>Sample  output from Python Nuclei Detector based on images above:</p>
         <pre><code>$  Nuclei:  1252
         $ Myogenic Nuclei:  413
