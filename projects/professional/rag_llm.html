@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://www.dropbox.com;">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>RAG-LLM | Anthony Dario Gisolfi</title>
+         <!-- Favicon-->
+         <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.png" />
+         <link rel="stylesheet" href="../../styles.css">
+         <script src="../../javascript/script.js"></script>
+    </head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1>Anthony Dario Gisolfi</h1>
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Projects</a>
+                    <div class="dropdown-content">
+                        <a href="../../professional.html">Professional</a>
+                        <a href="../../academic.html">Academic</a>
+                        <a href="../../makerspace.html">Makerspace</a>
+                    </div>
+                <li><a href="https://www.dropbox.com/scl/fi/3rgkwb0ou0ylsqk2tjoxm/adg-resume-Q2-2024-v2.pdf?rlkey=ky10ysox7jftwchvgdd6rj26i&st=f851wu8r&dl=0">Resume</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="content container">
+        <div class="col-md-9 blog-main order-first order-md-2">
+            <h1>Retrieval Augmented Generation Large Language Model</h1>
+            <h4>Motivation</h4>
+            <p>Writing applications for Small Business Innovation Research (SBIR) grants can be time consuming and eat at company resources. Therefore there is an interest in using AI to aide in this writing process. </p>
+            <h4>Challenge</h4>
+            <p>Create an easy to use RAG-LLM that can be used by anyone in the company. The LLM should take in knowlede about projects in the form of pdf, .txt, .json, and even websites urls and then be able to answer user questions in a chatbot format. </p>
+            <h4>Solution</h4>
+            <p>Using Meta's Llama a RAG-LLM was created with an accompying Tkinter GUI for ease of use.</p>
+            <h4>Approach</h4>
+            <p>I used Meta's Llama base LLM as RAG implementation was fairly easy and this method had already been completed by my project supervisor and could be passed down to me. I created my own custom scrapers for websites and txt files to allow for better RAG success. F1, Rouge,Bleu,Cosine Similarity, and Recall scores were used to quantify the success of the model when writing proposal abstracts. These scores served as metrics for all changes that were made in the model. A Tkinter GUI was made allowing for all functions of the product to be accessible outside terminal use and therefore be more accessible.</p>
+            <table>
+            <thead>
+            <tr>
+            <th>Skills Demonstrated</th>
+            <th>Project Artifacts</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>RAG-LLM</td>
+            <td>See Below</td>
+            </tr>
+            <td>Tkinter GUI</td>
+            <td>See Below</a></td>
+            </tbody>
+            </table>
+            <h4>Benefits</h4>
+            <p>This product will help users who wish to speed up the application writing process for SBIRs and therefore save time and company resources. This project taught me about Large Language Models, building a GUI from scratch, and ultimatley designing a product.</p>
+        </div>
+    </section>
+
+    <section class="content container">
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="../../assets/img/projects/rag_llm.png" alt="GUI Interface of LLM Model">
+            </div>
+        </div>
+    </section>
+
+    <!-- The Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+
+    <footer>
+        <p>© 2024 Anthony Dario Gisolfi. All rights reserved.</p>
+    </footer>
+</body>
+</html>
