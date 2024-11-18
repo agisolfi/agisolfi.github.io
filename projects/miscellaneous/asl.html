@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://www.dropbox.com;">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Custom ASL Detector | Anthony Dario Gisolfi</title>
+         <!-- Favicon-->
+         <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.png" />
+         <link rel="stylesheet" href="../../styles.css">
+         <script src="../../javascript/script.js"></script>
+    </head>
+<body>
+    <div id="header"></div> <!-- Placeholder for the header -->
+    <script src="/javascript/load-header.js"></script> <!-- Load the JavaScript file -->
+
+    <section class="content container">
+        <div class="col-md-9 blog-main order-first order-md-2">
+            <h1>ASL Detector</h1>
+            <h4>Motivation</h4>
+            <p>I wanted to experiment with Mediapipe's gesture detection and thought it would be fun to detect American Sign Language.</p>
+            <h4>Challenge</h4>
+            <p>Create a program that uses the users webcam to recgonize hand gestures and allow the user to type using it.</p>
+            <h4>Solution</h4>
+            <p>Using Mediapipe's gesture recongition a custom ASL detector was created which allows the user to write text to a .txt file using only hand gestures.</p>
+            <h4>Approach</h4>
+            <p>In order to train my own gesture recongition model, I needed to first create a database of example gestures. I took approximately 100 pictures of each hand gesture of the ASL alphabet and then fed these images into a python script. This script trained a model which I used in another python script to look through the users webcam and allow the user to type using their hand gestures.</p>
+            <table>
+            <thead>
+            <tr>
+            <th>Skills Demonstrated</th>
+            <th>Project Artifacts</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>OpenCV, Mediapipe, Gesture Recongition</td>
+            <td><a href= "https://github.com/agisolfi/ASL-Detect">Github Repo</a></td>
+            </tr>
+            </tbody>
+            </table>
+            <h4>Benefits</h4>
+            <p>This program can be used by those attempting to practice ASL or train custom gestures models of thier own.</p>
+        </div>
+    </section>
+
+    <section class="content container">
+        <div class="gallery">
+            <div class="gallery-item"></div>
+                <video controls="controls" loop="loop" autoplay="autoplay" muted="muted" width="25%" alt="Jacket reacting to sound"><source src="/assets/img/projects/ASL_Detection_example.mp4">Your browser does not support the video tag.</video>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+
+    <footer>
+        <p>© 2024 Anthony Dario Gisolfi. All rights reserved.</p>
+    </footer>
+</body>
+</html>
