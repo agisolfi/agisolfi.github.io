@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://www.dropbox.com https://playlist-generator-xjq7.onrender.com;">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ChatGPT Playlist Generator | Anthony Dario Gisolfi</title>
+         <!-- Favicon-->
+         <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.png" />
+         <link rel="stylesheet" href="../../styles.css">
+         <script src="../../javascript/script.js"></script>
+    </head>
+<body>
+    <div id="header"></div> <!-- Placeholder for the header -->
+    <script src="/javascript/load-header.js"></script> <!-- Load the JavaScript file -->
+
+    <section class="content container">
+        <div class="col-md-9 blog-main order-first order-md-2">
+            <h1>ChatGPT Playlist Generator</h1>
+            <h4>Motivation</h4>
+            <p>I have been trying to find a way to make great playlists with minimal manual work. When I learned that chatgpt can suggest playlists, I thought it could be cool to automate this.</p>
+            <h4>Challenge</h4>
+            <p>Convert chaptgpt playlist suggestions to a playlist that can be listened to on a streaming service. Ideally, the automated process should be user friendly so that it can be shared with those who aren't tech-savvy.</p>
+            <h4>Solution</h4>
+            <p>Use OpenAi's API to receive playlist suggestions which can be sent to Spotify's API to create a playlist.</p>
+            <h4>Approach</h4>
+            <p>Using OpenAI's and Spotify's APIs, I created a script that uses that takes a users request for a playlist, sends it to OpenAI for song recommendation, and then send those recommendations to Spotify's end to make a playlist under my account. Apple Music playlists can be made using third party apps to convert Spotify playlists. Unfortunately this could not be automated because the Apple Dev kit is very expensive. Additionally users have to save Spotify playlists off my account as they would need their own dev credentials to make one under their account. A live web app was deployed on Render for public use.</p>
+            <table>
+            <thead>
+            <tr>
+            <th>Skills Demonstrated</th>
+            <th>Project Artifacts</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>OpenAI, Spotipy</td>
+            <td><a href= "https://github.com/agisolfi/playlist_generator">Github Repo</a></td>
+            </tr>
+            <td>Render</td>
+            <td>See Below/<a href="https://playlist-generator-xjq7.onrender.com/">Live Web App</a></td>
+            </tbody>
+            </table>
+
+            <h4>Web App Preview</h4>
+            <iframe src="https://playlist-generator-xjq7.onrender.com/" width="1150" height="600"></iframe>
+
+            
+            <h4>Benefits</h4>
+            <p>Quick playlists can be made with varying success depending on prompts. As OpenAI continues to develop its model, it may preform even better.</p>
+        </div>
+    </section>
+
+    <!-- The Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+
+    <footer>
+        <p>© 2024 Anthony Dario Gisolfi. All rights reserved.</p>
+    </footer>
+</body>
+</html>

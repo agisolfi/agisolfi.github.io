@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://www.dropbox.com https://playlist-generator-xjq7.onrender.com;">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Record Detector | Anthony Dario Gisolfi</title>
+         <!-- Favicon-->
+         <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.png" />
+         <link rel="stylesheet" href="../../styles.css">
+         <script src="../../javascript/script.js"></script>
+    </head>
+<body>
+    <div id="header"></div> <!-- Placeholder for the header -->
+    <script src="/javascript/load-header.js"></script> <!-- Load the JavaScript file -->
+
+    <section class="content container">
+        <div class="col-md-9 blog-main order-first order-md-2">
+            <h1>Album Detector Using Raspberry Pi and OpenAI</h1>
+            <h4>Motivation</h4>
+            <p>A few months ago I had seen a video on instagram where someone had made a device that detected what record he was playing through visual detection of the album cover. It then projected the album and its tracklist onto the wall next to him. Recently, I acquired a stand for the records that I'm currently playing and, being the frivolous man that I am, wanted to recreate this device for as cheap as possible.</p>
+            <h4>Challenge</h4>
+            <p>Using cheap equipment, create a device capable of visually identifying a record based off its album cover, obtain its data, and display it to the user.</p>
+            <h4>Solution</h4>
+            <p>Due to price constraints, I ended up opting for a 7 inch touchscreen display for the presentation of album data, as most projectors are unreasonably priced. The brains behind the device is a raspberry pi zero W with a raspberry pi camera. </p>
+            <h4>Approach</h4>
+            <p>Using OpenAI's and Spotify's APIs, I created a script that uses the raspberry pis camera to take a photo of the album cover and then send that photo to OpenAI's API to identify which album is in the picture. Once the album name and accompanying artist had been identified, it is sent to Spotify's end to acquire the album's tracklist and cover art. Then using Pygame, a front end view of the albums data is created. </p>
+            <table>
+            <thead>
+            <tr>
+            <th>Skills Demonstrated</th>
+            <th>Project Artifacts</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>OpenCV, Pygame, OpenAI, Spotipy</td>
+            <td><a href= "https://github.com/agisolfi/record_detect">Github Repo</a></td>
+            </tr>
+            <td>Raspberry Pi</td>
+            <td>See Below</td>
+            </tbody>
+            </table>
+            
+            
+            <h4> Budget Breakdown </h4>
+            <table>
+            <thead>
+            <tr>
+            <th>Item</th>
+            <th>Cost</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td><a href ="https://vilros.com/products/vilros-raspberry-pi-zero-2-w-basic-starter-kit?srsltid=AfmBOoqEdAIf1cGUHcjof3lc3qMv9h9sGI8G02TkELdB0iReN9bI3rdG"> Raspberry Pi Zero W</a></td>
+            <td>$38.99 </td>
+            </tr>
+            <td><a href ="https://www.aliexpress.us/item/3256804287635780.html?gatewayAdapt=glo2usa&af=1627752_1&cv=48177634&cn=42sr6byiotz5h4lpnoq3lrgv2hvxy8n0&dp=v5_42sr6byiotz5h4lpnoq3lrgv2hvxy8n0&af=1627752_1&cv=48177634&cn=42sr6byiotz5h4lpnoq3lrgv2hvxy8n0&dp=v5_42sr6byiotz5h4lpnoq3lrgv2hvxy8n0&afref=&aff_fcid=c7ce4290bd344f478a0cd145f3a28604-1738697994937-04390-_A8S9Is&aff_fsk=_A8S9Is&aff_platform=portals-hotproduct&sk=_A8S9Is&aff_trace_key=c7ce4290bd344f478a0cd145f3a28604-1738697994937-04390-_A8S9Is&terminal_id=1c7665e395154744a1fd3914d60f3d99"> Raspberry Pi Camera</td>
+            <td>$0.99</td>
+            </tr>
+            <td><a href ="https://www.amazon.com/dp/B09XKC53NH?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1">7 Inch LCD Touchscreen</td>
+            <td>$39.55</td>
+            </tr>
+            <td>Total</td>
+            <td>$79.53</td>
+            </tbody>
+            </table>
+
+
+            <h4>Project Photos (Work in Progress)</h4>
+            <section class="content container">
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="../../assets/img/projects/record_detect1.jpg">
+                    </div>
+                    <div class="gallery-item">
+                    <img src="../../assets/img/projects/record_detect2.jpg">
+                    </div>
+                </div>
+            </section>
+            
+            <h4>Benefits</h4>
+            <p>For a cheap price, I was able to replicate the device while experimenting a bit with a raspberry pi.</p>
+        </div>
+    </section>
+
+    <!-- The Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+
+    <footer>
+        <p>© 2024 Anthony Dario Gisolfi. All rights reserved.</p>
+    </footer>
+</body>
+</html>
